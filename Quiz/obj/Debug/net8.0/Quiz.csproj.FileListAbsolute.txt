@@ -1,0 +1,15 @@
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.GeneratedMSBuildEditorConfig.editorconfig
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.AssemblyInfoInputs.cache
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.AssemblyInfo.cs
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.csproj.CoreCompileInputs.cache
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.sourcelink.json
+C:\github\ExamTaskCSharp\Quiz\bin\Debug\net8.0\Quiz.exe
+C:\github\ExamTaskCSharp\Quiz\bin\Debug\net8.0\Quiz.deps.json
+C:\github\ExamTaskCSharp\Quiz\bin\Debug\net8.0\Quiz.runtimeconfig.json
+C:\github\ExamTaskCSharp\Quiz\bin\Debug\net8.0\Quiz.dll
+C:\github\ExamTaskCSharp\Quiz\bin\Debug\net8.0\Quiz.pdb
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.dll
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\refint\Quiz.dll
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.pdb
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\Quiz.genruntimeconfig.cache
+C:\github\ExamTaskCSharp\Quiz\obj\Debug\net8.0\ref\Quiz.dll
