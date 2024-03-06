@@ -1,4 +1,6 @@
-﻿using static System.Console;
+﻿using Quiz.Classes;
+using System.Net.Security;
+using static System.Console;
 
 namespace Quiz
 {
@@ -8,13 +10,17 @@ namespace Quiz
         {
             try
             {
-                Write("Login: ");
-                string? login = ReadLine();
-                Write("Pass: ");
-                string? pass = ReadLine();
-                User user = AuthorisationRegistration.Authorisation(login, pass);
+                
+            }
+            catch (FileLoadException ex)
+            {
+                WriteLine(ex.Message);
             }
             catch (ArgumentException ex)
+            {
+                WriteLine(ex.Message);
+            }
+            catch (Exception ex)
             {
                 WriteLine(ex.Message);
             }

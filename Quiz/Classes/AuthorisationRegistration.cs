@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
 using static System.Console;
 
-namespace Quiz
+namespace Quiz.Classes
 {
     public static class AuthorisationRegistration
     {
-        private static string _path = "_registeredUsers.json";
-        private static List<User>? _registeredUsers = GetRegisteredUsers();
+        private const string _TestPath = "registeredUsers.json";
+        public static List<User>? RegisteredUsers { get; set; } = GetRegisteredUsers();
 
         public static bool IsValid(string value, string message)
         {
@@ -19,26 +14,31 @@ namespace Quiz
 
             int kilkLetters = 0;
             int kilkNumbers = 0;
+            int kilkUpper = 0;
             foreach (var item in value)
             {
+                if (char.IsUpper(item)) ++kilkUpper;
                 if (char.IsLetter(item)) ++kilkLetters;
                 else if (char.IsDigit(item)) ++kilkNumbers;
-                else throw new ArgumentException($"Error: {message} can`t have punctuation or other symbols");
             }
 
-            if (kilkLetters < 8 || kilkNumbers < 3) throw new ArgumentException($"Error: {message} must have at least 8 letters and 3 digits");
+            if (kilkLetters < 8 || kilkNumbers < 3 || kilkUpper < 1) throw new ArgumentException($"Error: {message} must have at least 8 letters, 1 capital letter and 3 digits");
             return true;
         }
         private static List<User>? GetRegisteredUsers()
         {
-            if (!File.Exists(_path)) return null;
-            List<User>? _registeredUsers = JsonSerializer.Deserialize<List<User>>(_path);
-            return _registeredUsers;
+            if (!File.Exists(_TestPath)) return new();
+
+            string jsonContent = File.ReadAllText(_TestPath);
+            if (jsonContent == string.Empty) return new();
+
+            List<User>? RegisteredUsers = JsonSerializer.Deserialize<List<User>>(jsonContent);
+            return RegisteredUsers;
         }
-        private static void Save()
+        public static void Save()
         {
-            string jsonString = JsonSerializer.Serialize(_registeredUsers);
-            File.WriteAllText(_path, jsonString);
+            string jsonString = JsonSerializer.Serialize(RegisteredUsers);
+            File.WriteAllText(_TestPath, jsonString);
         }
 
         public static User Authorisation(string login, string password)
@@ -54,21 +54,12 @@ namespace Quiz
                 throw new ArgumentException(ex.Message);
             }
 
-            if (_registeredUsers == null)
-            {
-                return Registration(login, password);
-            }
-            foreach (var item in _registeredUsers)
+            if (RegisteredUsers.Count == 0) return Registration(login, password);
+            foreach (var item in RegisteredUsers)
             {
                 if (item.Login == login && item.Password == password)
                 {
-                    Write("Birth date: ");
-                    DateOnly birthDate;
-                    if (!DateOnly.TryParse(ReadLine(), out birthDate))
-                    {
-                        throw new ArgumentException("Error: Invalid value for birth date");
-                    }
-                    return new User(login, password, birthDate);
+                    return new User(login, password, item.BirthDate);
                 }
             }
             return Registration(login, password);
@@ -77,14 +68,22 @@ namespace Quiz
         {
             try
             {
+                foreach (var item in RegisteredUsers)
+                {
+                    if (item.Login == login) throw new ArgumentException("Error: This login already exists");
+                }
+
                 Write("Birth date: ");
                 DateOnly birthDate;
                 if (!DateOnly.TryParse(ReadLine(), out birthDate))
                 {
                     throw new ArgumentException("Error: Invalid value for birth date");
                 }
+
+                User user = new(login, password, birthDate);
+                RegisteredUsers.Add(user);
                 Save();
-                return new User(login, password, birthDate);
+                return user;
             }
             catch (ArgumentException ex)
             {

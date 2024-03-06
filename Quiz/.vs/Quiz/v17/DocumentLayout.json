@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\github\\ExamTaskCSharp\\Quiz\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|c:\\github\\examtaskcsharp\\quiz\\authorisationregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|solutionrelative:authorisationregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|c:\\github\\examtaskcsharp\\quiz\\classes\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|solutionrelative:classes\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|c:\\github\\examtaskcsharp\\quiz\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|c:\\github\\examtaskcsharp\\quiz\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|solutionrelative:user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|c:\\github\\examtaskcsharp\\quiz\\classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|solutionrelative:classes\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|c:\\github\\examtaskcsharp\\quiz\\classes\\authorisationregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{18757336-82F8-4A2A-9977-75E2135E482F}|Quiz.csproj|solutionrelative:classes\\authorisationregistration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -32,36 +36,46 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\github\\ExamTaskCSharp\\Quiz\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAABUAAAAWAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAwAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-03-01T23:25:17.202Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "AuthorisationRegistration.cs",
-              "DocumentMoniker": "C:\\github\\ExamTaskCSharp\\Quiz\\AuthorisationRegistration.cs",
-              "RelativeDocumentMoniker": "AuthorisationRegistration.cs",
-              "ToolTip": "C:\\github\\ExamTaskCSharp\\Quiz\\AuthorisationRegistration.cs",
-              "RelativeToolTip": "AuthorisationRegistration.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAAAJAAAA",
+              "DocumentMoniker": "C:\\github\\ExamTaskCSharp\\Quiz\\Classes\\AuthorisationRegistration.cs",
+              "RelativeDocumentMoniker": "Classes\\AuthorisationRegistration.cs",
+              "ToolTip": "C:\\github\\ExamTaskCSharp\\Quiz\\Classes\\AuthorisationRegistration.cs",
+              "RelativeToolTip": "Classes\\AuthorisationRegistration.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-02T14:13:19.092Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-05T20:34:18.894Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
               "Title": "User.cs",
-              "DocumentMoniker": "C:\\github\\ExamTaskCSharp\\Quiz\\User.cs",
-              "RelativeDocumentMoniker": "User.cs",
-              "ToolTip": "C:\\github\\ExamTaskCSharp\\Quiz\\User.cs",
-              "RelativeToolTip": "User.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAADcAAAAJAAAA",
+              "DocumentMoniker": "C:\\github\\ExamTaskCSharp\\Quiz\\Classes\\User.cs",
+              "RelativeDocumentMoniker": "Classes\\User.cs",
+              "ToolTip": "C:\\github\\ExamTaskCSharp\\Quiz\\Classes\\User.cs",
+              "RelativeToolTip": "Classes\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-03-01T23:28:36.615Z",
+              "WhenOpened": "2024-03-05T20:32:13.512Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "C:\\github\\ExamTaskCSharp\\Quiz\\Classes\\Quiz.cs",
+              "RelativeDocumentMoniker": "Classes\\Quiz.cs",
+              "ToolTip": "C:\\github\\ExamTaskCSharp\\Quiz\\Classes\\Quiz.cs",
+              "RelativeToolTip": "Classes\\Quiz.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAzwBEAAABJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-03-05T20:25:23.605Z",
               "EditorCaption": ""
             }
           ]
