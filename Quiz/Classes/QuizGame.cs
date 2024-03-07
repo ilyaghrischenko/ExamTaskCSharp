@@ -10,7 +10,7 @@ namespace Quiz.Classes
         Biology
     }
 
-    public class Quiz
+    public class QuizGame
     {
         public QuizSection Section { get; set; } = QuizSection.Mathematics;
         public Dictionary<string, string> QuestionAnswers { get; private set; } = new();
@@ -18,8 +18,8 @@ namespace Quiz.Classes
         private string TestPath { get; set; } = "tests/mathematics/1/test.json";
         private string AnswersPath { get; set; } = "tests/mathematics/1/answers.json";
 
-        public Quiz() { }
-        public Quiz(QuizSection section)
+        public QuizGame() { }
+        public QuizGame(QuizSection section)
         {
             Section = section;
 
@@ -62,6 +62,7 @@ namespace Quiz.Classes
             return JsonSerializer.Deserialize<List<char>>(File.ReadAllText(AnswersPath));
         }
 
+        public uint Grade { get; private set; } = 0;
         public void StartQuiz(User user)
         {
             WriteLine("Quiz(Max grade - 100):");
@@ -86,6 +87,7 @@ namespace Quiz.Classes
                 WriteLine($"Current grade: {grade}\n");
                 ReadKey();
             }
+            Grade = grade;
         }
 
         public override string ToString()
@@ -102,7 +104,7 @@ namespace Quiz.Classes
             if (obj == null) return false;
             if (obj.GetType() != GetType()) return false;
 
-            var other = (Quiz)obj;
+            var other = (QuizGame)obj;
             return ToString() == other.ToString();
         }
         public override int GetHashCode()

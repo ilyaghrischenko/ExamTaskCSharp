@@ -1,5 +1,4 @@
 ﻿using Quiz.Classes;
-using System.Net.Security;
 using static System.Console;
 
 namespace Quiz
@@ -10,7 +9,9 @@ namespace Quiz
         {
             try
             {
-                
+                User user = AuthorisationRegistration.Authorisation("IllyaHryshchenko711626", "IlyaHRYSH711626");
+                QuizGame quiz = new(QuizSection.Mathematics);
+                quiz.StartQuiz(user);
             }
             catch (FileLoadException ex)
             {

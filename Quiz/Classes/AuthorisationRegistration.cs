@@ -5,7 +5,7 @@ namespace Quiz.Classes
 {
     public static class AuthorisationRegistration
     {
-        private const string _TestPath = "registeredUsers.json";
+        private const string TestPath = "registeredUsers.json";
         public static List<User>? RegisteredUsers { get; set; } = GetRegisteredUsers();
 
         public static bool IsValid(string value, string message)
@@ -27,9 +27,9 @@ namespace Quiz.Classes
         }
         private static List<User>? GetRegisteredUsers()
         {
-            if (!File.Exists(_TestPath)) return new();
+            if (!File.Exists(TestPath)) return new();
 
-            string jsonContent = File.ReadAllText(_TestPath);
+            string jsonContent = File.ReadAllText(TestPath);
             if (jsonContent == string.Empty) return new();
 
             List<User>? RegisteredUsers = JsonSerializer.Deserialize<List<User>>(jsonContent);
@@ -38,7 +38,7 @@ namespace Quiz.Classes
         public static void Save()
         {
             string jsonString = JsonSerializer.Serialize(RegisteredUsers);
-            File.WriteAllText(_TestPath, jsonString);
+            File.WriteAllText(TestPath, jsonString);
         }
 
         public static User Authorisation(string login, string password)
