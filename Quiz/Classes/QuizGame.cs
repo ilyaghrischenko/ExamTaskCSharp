@@ -97,10 +97,9 @@ namespace Quiz.Classes
                     user = AuthorisationRegistration.RegisteredUsers[i];
 
                     AuthorisationRegistration.Save();
-                    break;
+                    return;
                 }
             }
-            
         }
 
         public override string ToString()

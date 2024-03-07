@@ -12,6 +12,10 @@ namespace Quiz
             {
                 User user = AuthorisationRegistration.Authorisation("SimpleLogin123", "SimplePassword123");
                 user.Show();
+
+                QuizGame quiz = new(QuizSection.Mathematics);
+                quiz.StartQuiz(user);
+                user.Show();
             }
             catch (FileLoadException ex)
             {

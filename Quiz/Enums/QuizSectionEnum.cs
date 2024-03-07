@@ -10,6 +10,7 @@ namespace Quiz.Enums
     {
         Mathematics,
         Geography,
-        Biology
+        Biology,
+        Mixed
     }
 }

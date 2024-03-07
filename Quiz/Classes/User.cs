@@ -26,7 +26,7 @@ namespace Quiz.Classes
         public string Login
         {
             get => _login;
-            private set
+            set
             {
                 try
                 {
