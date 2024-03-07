@@ -9,16 +9,15 @@ namespace Quiz.Classes
 {
     public class QuizResult
     {
-        public QuizGame ResultQuiz { }
-        private uint _grade;
-        private uint _wrong;
-        private uint _correct;
+        public QuizGame CompletedQuiz { get; set; } = new();
+        public uint Grade { get; set; } = 0;
+        public uint Wrong { get; set; } = 0;
+        public uint Correct { get; set; } = 0;
 
+        public QuizResult() { }
         public QuizResult(QuizGame quiz)
         {
-            _quiz = quiz;
-            _grade = _quiz.Grade;
-            _correct=_grade
+            CompletedQuiz = quiz;
         }
     }
 }

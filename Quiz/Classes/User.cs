@@ -58,6 +58,7 @@ namespace Quiz.Classes
                 _birthDate = value;
             }
         }
+        public List<QuizResult> Results { get; set; } = new(); 
 
         public void Show()
         {

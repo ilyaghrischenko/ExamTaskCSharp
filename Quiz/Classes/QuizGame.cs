@@ -62,7 +62,6 @@ namespace Quiz.Classes
             return JsonSerializer.Deserialize<List<char>>(File.ReadAllText(AnswersPath));
         }
 
-        public uint Grade { get; private set; } = 0;
         public void StartQuiz(User user)
         {
             WriteLine("Quiz(Max grade - 100):");
@@ -71,6 +70,8 @@ namespace Quiz.Classes
             uint number = 1;
             int answersIndex = 0;
             uint grade = 0;
+            uint correct = 0;
+            uint wrong = 0;
             foreach (var item in QuestionAnswers)
             {
                 Write($"{number++}. {item.Key}\n{item.Value}\n:");
@@ -81,13 +82,23 @@ namespace Quiz.Classes
                 if (answer == Answers[answersIndex++])
                 {
                     grade += 5;
+                    ++correct;
                     WriteLine("Correct answer!");
                 }
-                else WriteLine("Incorrect answer!");
+                else
+                {
+                    WriteLine("Incorrect answer!");
+                    ++wrong;
+                }
                 WriteLine($"Current grade: {grade}\n");
                 ReadKey();
             }
-            Grade = grade;
+
+            QuizResult quizResult = new(this);
+            quizResult.Grade = grade;
+            quizResult.Wrong = wrong;
+            quizResult.Correct = correct;
+            user.Results.Add(quizResult);
         }
 
         public override string ToString()
