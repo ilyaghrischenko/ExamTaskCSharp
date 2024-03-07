@@ -15,6 +15,13 @@ namespace Quiz.Classes
             Password = password;
             BirthDate = birthDate;
         }
+        public User(string login, string password, DateOnly birthDate, List<QuizResult> results)
+        {
+            Login = login;
+            Password = password;
+            BirthDate = birthDate;
+            Results = results;
+        }
 
         public string Login
         {
@@ -112,7 +119,7 @@ namespace Quiz.Classes
             {
                 foreach (var item in Results)
                 {
-                    result += $"Section: {item.CompletedQuiz.Section}, Grade: {item.Grade}, Correct: {item.Correct}, Wrong: {item.Wrong}\n";
+                    result += $"Section: {item.Section}, Grade: {item.Grade}, Correct: {item.Correct}, Wrong: {item.Wrong}\n";
                 }
             }
             return result;

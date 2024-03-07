@@ -1,15 +1,9 @@
-﻿using System.Text.Json;
+﻿using Quiz.Enums;
+using System.Text.Json;
 using static System.Console;
 
 namespace Quiz.Classes
 {
-    public enum QuizSection
-    {
-        Mathematics,
-        Geography,
-        Biology
-    }
-
     public class QuizGame
     {
         public QuizSection Section { get; set; } = QuizSection.Mathematics;
@@ -94,11 +88,19 @@ namespace Quiz.Classes
                 ReadKey();
             }
 
-            QuizResult quizResult = new(this);
-            quizResult.Grade = grade;
-            quizResult.Wrong = wrong;
-            quizResult.Correct = correct;
-            user.Results.Add(quizResult);
+            for (int i = 0; i < AuthorisationRegistration.RegisteredUsers.Count; ++i)
+            {
+                if (AuthorisationRegistration.RegisteredUsers[i].Login == user.Login)
+                {
+                    QuizResult quizResult = new(Section, grade, wrong, correct);
+                    AuthorisationRegistration.RegisteredUsers[i].Results.Add(quizResult);
+                    user = AuthorisationRegistration.RegisteredUsers[i];
+
+                    AuthorisationRegistration.Save();
+                    break;
+                }
+            }
+            
         }
 
         public override string ToString()
