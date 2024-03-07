@@ -105,7 +105,17 @@ namespace Quiz.Classes
 
         public override string ToString()
         {
-            return $"Login: {Login}, Password: {Password}, Birth date: {BirthDate}";
+            string result = $"Login: {Login}, Password: {Password}, Birth date: {BirthDate}\nResults: ";
+
+            if (Results.Count == 0) result += "No completed quizes";
+            else
+            {
+                foreach (var item in Results)
+                {
+                    result += $"Section: {item.CompletedQuiz.Section}, Grade: {item.Grade}, Correct: {item.Correct}, Wrong: {item.Wrong}\n";
+                }
+            }
+            return result;
         }
         public override bool Equals(object? obj)
         {
