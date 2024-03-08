@@ -28,15 +28,8 @@ namespace Quiz.Classes
             get => _login;
             set
             {
-                try
-                {
-                    if (value == Password) throw new ArgumentException("Error: Login and password can`t be equal");
-                    if (AuthorisationRegistration.IsValid(value, "login")) _login = value;
-                }
-                catch (ArgumentException ex)
-                {
-                    throw new ArgumentException(ex.Message);
-                }
+                if (value == Password) throw new ArgumentException("Error: Login and password can`t be equal");
+                if (AuthorisationRegistration.IsValid(value, "login")) _login = value;
             }
         }
         public string Password
@@ -44,15 +37,8 @@ namespace Quiz.Classes
             get => _password;
             set
             {
-                try
-                {
-                    if (value == Login) throw new ArgumentException("Error: Password and login can`t be equal");
-                    if (AuthorisationRegistration.IsValid(value, "password")) _password = value;
-                }
-                catch (ArgumentException ex)
-                {
-                    throw new ArgumentException(ex.Message);
-                }
+                if (value == Login) throw new ArgumentException("Error: Password and login can`t be equal");
+                if (AuthorisationRegistration.IsValid(value, "password")) _password = value;
             }
         }
         public DateOnly BirthDate
