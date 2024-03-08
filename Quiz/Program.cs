@@ -30,7 +30,6 @@ namespace Quiz
                 WriteLine(ex.Message);
             }
             WriteLine();
-            ReadKey();
         }
     }
 }

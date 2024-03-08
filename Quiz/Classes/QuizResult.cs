@@ -24,6 +24,11 @@ namespace Quiz.Classes
             Correct = correct;
         }
 
+        public void Show()
+        {
+            WriteLine(this);
+        }
+
         public override string ToString()
         {
             return $"Section: {Section}, Grade: {Grade}, Wrong: {Wrong}, Correct: {Correct}";

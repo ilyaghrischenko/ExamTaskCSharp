@@ -69,7 +69,7 @@ namespace Quiz.Classes
 
         public void Show()
         {
-            WriteLine(this);
+            WriteLine($"\n{this}");
         }
         public void Input()
         {
@@ -112,14 +112,16 @@ namespace Quiz.Classes
 
         public override string ToString()
         {
-            string result = $"Login: {Login}, Password: {Password}, Birth date: {BirthDate}\nResults: ";
+            string result = $"Login: {Login}, Birth date: {BirthDate}\nResults: ";
 
             if (Results.Count == 0) result += "No completed quizes";
             else
             {
+                result += "\n";
+                uint number = 1;
                 foreach (var item in Results)
                 {
-                    result += $"Section: {item.Section}, Grade: {item.Grade}, Correct: {item.Correct}, Wrong: {item.Wrong}\n";
+                    result += $"{number++}. Section: {item.Section}, Grade: {item.Grade}, Correct: {item.Correct}, Wrong: {item.Wrong}\n";
                 }
             }
             return result;

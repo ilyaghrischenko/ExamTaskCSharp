@@ -43,6 +43,9 @@ namespace Quiz.Classes
 
         public static User Authorisation(string login, string password)
         {
+            Write($"Authorisation: Login - {login}, Password - {password}\nPress any key...");
+            ReadKey();
+            WriteLine();
             if (login == string.Empty || password == string.Empty) throw new ArgumentException("Error: Empty value for login or password");
             if (login == password) throw new ArgumentException("Error: Login and password can`t be equal");
             try
@@ -59,6 +62,7 @@ namespace Quiz.Classes
             {
                 if (item.Login == login && item.Password == password)
                 {
+                    WriteLine("You've successfully logged in");
                     if (item.Results.Count == 0) return new User(login, password, item.BirthDate);
                     return new User(login, password, item.BirthDate, item.Results);
                 }
@@ -67,6 +71,8 @@ namespace Quiz.Classes
         }
         private static User Registration(string login, string password)
         {
+            WriteLine($"\nUser not found.\nRegistration:");
+
             try
             {
                 foreach (var item in RegisteredUsers)

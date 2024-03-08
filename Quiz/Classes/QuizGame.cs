@@ -73,6 +73,7 @@ namespace Quiz.Classes
                 {
                     throw new Exception("Error: Invalid input");
                 }
+                WriteLine();
                 if (answer == Answers[answersIndex++])
                 {
                     grade += 5;
@@ -84,8 +85,10 @@ namespace Quiz.Classes
                     WriteLine("Incorrect answer!");
                     ++wrong;
                 }
-                WriteLine($"Current grade: {grade}\n");
+                WriteLine($"Current grade: {grade}");
+                Write("Press any key...");
                 ReadKey();
+                WriteLine("\n");
             }
 
             for (int i = 0; i < AuthorisationRegistration.RegisteredUsers.Count; ++i)
@@ -94,9 +97,13 @@ namespace Quiz.Classes
                 {
                     QuizResult quizResult = new(Section, grade, wrong, correct);
                     AuthorisationRegistration.RegisteredUsers[i].Results.Add(quizResult);
-                    user = AuthorisationRegistration.RegisteredUsers[i];
+                    user.Results.Add(quizResult);
 
                     AuthorisationRegistration.Save();
+                    WriteLine("Quiz is over...");
+                    Write("Press any key...");
+                    ReadKey();
+                    WriteLine("\n");
                     return;
                 }
             }
