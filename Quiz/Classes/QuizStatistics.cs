@@ -8,7 +8,7 @@ namespace Quiz.Classes
     {
         private QuizSection Section { get; set; } = QuizSection.Mathematics;
         private string Path { get; set; } = string.Empty;
-        private Dictionary<string, List<QuizResult>>? Results { get; set; } = new();
+        public Dictionary<string, QuizResult>? Results { get; set; } = new();
 
         public QuizStatistics() { }
         public QuizStatistics(QuizSection section)
@@ -31,10 +31,10 @@ namespace Quiz.Classes
             Results = GetStatisticsFromFile();
         }
 
-        private Dictionary<string, List<QuizResult>>? GetStatisticsFromFile()
+        private Dictionary<string, QuizResult>? GetStatisticsFromFile()
         {
             if (!File.Exists(Path) || new FileInfo(Path).Length == 0) return new();
-            return JsonSerializer.Deserialize<Dictionary<string, List<QuizResult>>>(File.ReadAllText(Path));
+            return JsonSerializer.Deserialize<Dictionary<string, QuizResult>>(File.ReadAllText(Path));
         }
 
         public void Show()
@@ -48,12 +48,7 @@ namespace Quiz.Classes
             string text = "";
             foreach (var item in Results)
             {
-                text += $"{item.Key}:\n";
-                foreach (var value in item.Value)
-                {
-                    text += $"{value}\n";
-                }
-                text += "\n";
+                text += $"{item.Key}:\n{item.Value}\n";
             }
             return text;
         }

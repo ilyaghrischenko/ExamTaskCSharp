@@ -100,6 +100,8 @@ namespace Quiz.Classes
                     user.Results.Add(quizResult);
 
                     AuthorisationRegistration.Save();
+                    SaveResult(user.Login, quizResult);
+
                     WriteLine("Quiz is over...");
                     Write("Press any key...");
                     ReadKey();
@@ -107,6 +109,30 @@ namespace Quiz.Classes
                     return;
                 }
             }
+        }
+        private void SaveResult(string login, QuizResult result)
+        {
+            string path;
+            if (Section == QuizSection.Mathematics)
+            {
+                path = "tests/mathematics/statistics.json";
+            }
+            else if (Section == QuizSection.Biology)
+            {
+                path = "tests/biology/statistics.json";
+            }
+            else if (Section == QuizSection.Geography)
+            {
+                path = "tests/geography/statistics.json";
+            }
+            else path = "tests/mixed/statistics.json";
+
+            QuizStatistics statistics = new(Section);
+            statistics.Results.Add(login, result);
+
+            string jsonString = JsonSerializer.Serialize(statistics.Results);
+            if (!File.Exists(path)) throw new FileLoadException("Error: File does not exist");
+            File.WriteAllText(path, jsonString);
         }
 
         public override string ToString()

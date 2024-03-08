@@ -1,5 +1,6 @@
 ﻿using Quiz.Classes;
 using Quiz.Enums;
+using static System.Collections.Specialized.BitVector32;
 using static System.Console;
 
 namespace Quiz
@@ -11,8 +12,15 @@ namespace Quiz
             try
             {
                 User user = AuthorisationRegistration.Authorisation("SimpleLogin123", "SimplePassword123");
+                user.Show();
 
-                user.Login = "Kkjkgf289378923";
+                var section = QuizSection.Mathematics;
+
+                QuizGame quiz = new(section);
+                quiz.StartQuiz(user);
+
+                QuizStatistics statistics = new(section);
+                statistics.Show();
             }
             catch (FileLoadException ex)
             {
