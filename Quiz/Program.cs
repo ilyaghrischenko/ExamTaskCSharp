@@ -1,6 +1,5 @@
 ﻿using Quiz.Classes;
 using Quiz.Enums;
-using static System.Collections.Specialized.BitVector32;
 using static System.Console;
 
 namespace Quiz
@@ -11,6 +10,10 @@ namespace Quiz
         {
             try
             {
+                //1. Після завершення вікторини користувач отримує
+                //своє місце у таблиці результатів гравців вікторини.
+                //2. Змінити зберігання результатів у файли statistics.json
+
                 User user = AuthorisationRegistration.Authorisation("SimpleLogin123", "SimplePassword123");
                 user.Show();
 
