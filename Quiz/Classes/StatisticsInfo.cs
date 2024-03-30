@@ -28,7 +28,7 @@ namespace Quiz.Classes
 
         public override string ToString()
         {
-            return $"Position: {Position}, Login: {Login}, Result: {Result}";
+            return $"{Login}:\nPosition: {Position}, Result: {Result}";
         }
         public override bool Equals(object? obj)
         {

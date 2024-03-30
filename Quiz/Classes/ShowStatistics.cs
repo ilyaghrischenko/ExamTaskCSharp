@@ -4,14 +4,14 @@ using static System.Console;
 
 namespace Quiz.Classes
 {
-    public class QuizStatistics
+    public class ShowStatistics
     {
         private QuizSection Section { get; set; } = QuizSection.Mathematics;
         private string Path { get; set; } = string.Empty;
-        public Dictionary<string, QuizResult>? Results { get; set; } = new();
+        public List<StatisticsInfo>? Results { get; set; } = new();
 
-        public QuizStatistics() { }
-        public QuizStatistics(QuizSection section)
+        public ShowStatistics() { }
+        public ShowStatistics(QuizSection section)
         {
             Section = section;
             if (Section == QuizSection.Mathematics)
@@ -31,10 +31,10 @@ namespace Quiz.Classes
             Results = GetStatisticsFromFile();
         }
 
-        private Dictionary<string, QuizResult>? GetStatisticsFromFile()
+        private List<StatisticsInfo>? GetStatisticsFromFile()
         {
             if (!File.Exists(Path) || new FileInfo(Path).Length == 0) return new();
-            return JsonSerializer.Deserialize<Dictionary<string, QuizResult>>(File.ReadAllText(Path));
+            return JsonSerializer.Deserialize<List<StatisticsInfo>>(File.ReadAllText(Path));
         }
 
         public void Show()
@@ -57,7 +57,7 @@ namespace Quiz.Classes
             if (obj == null) return false;
             if (GetType() != obj.GetType()) return false;
 
-            var other = (QuizStatistics)obj;
+            var other = (ShowStatistics)obj;
             return ToString() == other.ToString();
         }
         public override int GetHashCode()

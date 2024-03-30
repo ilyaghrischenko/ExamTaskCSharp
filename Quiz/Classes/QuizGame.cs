@@ -100,7 +100,7 @@ namespace Quiz.Classes
                     user.Results.Add(quizResult);
 
                     AuthorisationRegistration.Save();
-                    SaveResult(user.Login, quizResult);
+                    SaveStatistics(user.Login, quizResult);
 
                     WriteLine("Quiz is over...");
                     Write("Press any key...");
@@ -110,7 +110,7 @@ namespace Quiz.Classes
                 }
             }
         }
-        private void SaveResult(string login, QuizResult result)
+        private void SaveStatistics(string login, QuizResult result)
         {
             string path;
             if (Section == QuizSection.Mathematics)
@@ -127,8 +127,19 @@ namespace Quiz.Classes
             }
             else path = "tests/mixed/statistics.json";
 
-            QuizStatistics statistics = new(Section);
-            statistics.Results.Add(login, result);
+            ShowStatistics statistics = new(Section);
+
+            uint position = 1;
+            List<uint> positions;
+            if (statistics.Results.Count > 0)
+            {
+                for (int i = 0; i < statistics.Results.Count; i++)
+                {
+
+                }
+            }
+
+            statistics.Results.Add(new StatisticsInfo(position, login, result));
 
             string jsonString = JsonSerializer.Serialize(statistics.Results);
             if (!File.Exists(path)) throw new FileLoadException("Error: File does not exist");

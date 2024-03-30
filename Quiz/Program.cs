@@ -22,7 +22,7 @@ namespace Quiz
                 QuizGame quiz = new(section);
                 quiz.StartQuiz(user);
 
-                QuizStatistics statistics = new(section);
+                ShowStatistics statistics = new(section);
                 statistics.Show();
             }
             catch (FileLoadException ex)
